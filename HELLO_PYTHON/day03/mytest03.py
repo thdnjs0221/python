@@ -9,7 +9,6 @@ class Animal:
        self.flagLife = False
        
 
-
 class Human(Animal):
     job = "백수"
    
@@ -31,6 +30,9 @@ class OopTest:
     hum.die()
     hum.chippo("프로그래머")
     print("hum-flagLife:",hum.flagLife)
+    print("job:"+hum.job)
+    
+    
     
 
        

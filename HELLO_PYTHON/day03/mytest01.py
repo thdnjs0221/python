@@ -16,23 +16,19 @@ for i in range(1000):
     #섞는 방법
     arr[0] = arr[rnd]
     arr[rnd] = a
-# print(a)
+print(a)
 
-
-me = input("숫자를 맞춰보세요")
-menum = int(me)
-result="";
-
-while menum==a:
+while True:
+    me = input("숫자를 맞춰보세요")
+    menum = int(me)
     if menum>a :
-        result=str(menum),"down"
+        print(menum,"down")
     elif menum<a:
-        result=str(menum),"up"
-    else :
-        result=str(a),"정답입니다"
+        print(menum,"up")
+    elif menum==a:
+        print(menum,"정답입니다")
+        break
 
-    
-print(result)
 
 
 
