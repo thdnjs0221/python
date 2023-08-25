@@ -3,10 +3,16 @@
 
 
 class Animal:
-    flagLife = True
-   
-    def die(self):
-       self.flagLife = False
+    def __init__(self):
+        self.flagLife = True
+        def die(self):
+            self.flagLife=False
+            
+ani = Animal()
+print("flagLife",ani.flagLife)
+ani.die()
+print("flagLife",ani.flagLife)
+
        
 
 class Human(Animal):
