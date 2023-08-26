@@ -3,7 +3,7 @@
 # 책에 나와있음 한 클래스에 들어잇음
 
 class Animal:
-    def __init__(self):  #생성자!
+    def __init__(self):  #생성자
         self.flagLife =True
     def die(self):
         self.flagLife = False
