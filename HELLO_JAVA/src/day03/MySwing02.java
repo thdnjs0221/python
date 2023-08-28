@@ -1,20 +1,19 @@
 package day03;
 
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class MySwing01 extends JFrame {
+public class MySwing02 extends JFrame {
 
    private JPanel contentPane;
+   private JTextField tf;
 
    /**
     * Launch the application.
@@ -23,7 +22,7 @@ public class MySwing01 extends JFrame {
       EventQueue.invokeLater(new Runnable() {
          public void run() {
             try {
-               MySwing01 frame = new MySwing01();
+               MySwing02 frame = new MySwing02();
                frame.setVisible(true);
             } catch (Exception e) {
                e.printStackTrace();
@@ -35,7 +34,7 @@ public class MySwing01 extends JFrame {
    /**
     * Create the frame.
     */
-   public MySwing01() {
+   public MySwing02() {
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setBounds(100, 100, 450, 300);
       contentPane = new JPanel();
@@ -44,21 +43,31 @@ public class MySwing01 extends JFrame {
       setContentPane(contentPane);
       contentPane.setLayout(null);
       
-      JLabel lbl = new JLabel("Good Morning");
-      lbl.setBounds(64, 46, 114, 15);
-      contentPane.add(lbl);
+      tf = new JTextField();
+      tf.setText("100");
+      tf.setBounds(12, 10, 116, 21);
+      contentPane.add(tf);
+      tf.setColumns(10);
       
-      JButton btn = new JButton("CLICK");
+      
+      
+      
+      
+      JButton btn = new JButton("INCREASE");
+      btn.setBounds(140, 9, 97, 23);
+      contentPane.add(btn);
+      
       btn.addMouseListener(new MouseAdapter() {
-         @Override
          public void mouseClicked(MouseEvent e) {
-            lbl.setText("Good Evening");
+            myClick();
          }
       });
       
-      
-      btn.setBounds(237, 38, 97, 23);
-      contentPane.add(btn);
-
+   }
+   
+   public void myClick() {
+      int count = Integer.parseInt(tf.getText());
+      count++;
+      tf.setText(String.valueOf(count));
    }
 }
