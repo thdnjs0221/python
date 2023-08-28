@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace myWin04.Properties
+namespace Mywin04.Properties
 {
 
 

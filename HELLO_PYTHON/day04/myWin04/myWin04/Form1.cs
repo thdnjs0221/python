@@ -8,10 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace myWin04
+namespace Mywin04
+
 {
     public partial class Form1 : Form
+
     {
+        String number = "";
+
+       
         public Form1()
         {
             InitializeComponent();
@@ -22,21 +27,18 @@ namespace myWin04
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+
+        private void btn1_Click_1(object sender, EventArgs e)
         {
+            number += ((Button)sender).Text;
+            tb.Text = number;
 
         }
 
         private void btncall_Click(object sender, EventArgs e)
         {
-            myClick();
+            MessageBox.Show(number + "\ncalling");
         }
-        public void myClick()
-        {
 
-            int count1 = Int32.Parse(btn1.Text);
-             tb.Text = count1.ToString();
-            
-        }
     }
 }
