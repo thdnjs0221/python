@@ -96,7 +96,8 @@ public class MySwing09 extends JFrame {
 	        if (com == null) {
 	            com = randCom();
 	            comNum = Arrays.toString(com);
-	            ta.setText("컴퓨터: " + comNum + "\n");
+	           // ta.setText("컴퓨터: " + comNum + "\n");
+	            System.out.println(comNum);
 	        }
 
 	        int s = getS(mine, comNum);
@@ -104,11 +105,11 @@ public class MySwing09 extends JFrame {
 
 	        if (s == 3) {
 	            JOptionPane.showMessageDialog(null, mine + "  " + s + "S" + b + "B  정답입니다");
-	            tf.setText(""); // 정답을 맞추면 입력 필드를 초기화
+	            ta.setText(""); // 정답을 맞추면 입력 필드를 초기화
 	            ta.append(mine + "\t" + s + "S" + b + "B  정답입니다\n"); // 결과 출력 영역에 정답을 추가
 	            com = null; // 컴퓨터 숫자 초기화
 	        } else {
-	        	System.out.println(randCom);
+	        	ta.setText("");
 	            ta.append(mine + "\t" + s + "S" + b + "B\n"); // 결과 출력 영역에 현재 결과를 추가
 	        }
 	    }
