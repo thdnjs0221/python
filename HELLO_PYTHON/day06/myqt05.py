@@ -15,16 +15,14 @@ class MainClass(QMainWindow, form_class):
        
         
     def myclick(self):
-        
-        a=self.le.text()
-        aa=int(a)
+        a = self.le.text()
+        aa = int(a)
+        result=""
         
         for i in range(1,9+1):
-            print("{}*{} {}".format(aa,i,aa*i))
-            
-            result=aa*i
-
-            self.td.setText(result)
+            result+= "{}*{}={} \n".format(aa,i,aa*i)
+        
+        self.td.setText(result)
         
        
         
