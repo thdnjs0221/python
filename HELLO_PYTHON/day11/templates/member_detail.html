@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function fn_mod(){
+	location.href="member_mod?m_id={{member.m_id}}"
+}
+function fn_del(){
+	document.frm.submit();
+}
+</script>
+</head>
+<body>
+MEMBER_DETAIL<br/>
+<form action="member_delete" name="frm" method="post">
+	<input type="hidden" name="m_id" value="{{member.m_id}}">
+</form>
+<table border="1">
+	<tr>
+		<td>사번</td>
+		<td> {{member.m_id}}</td>
+	</tr>
+	<tr>
+		<td>이름</td>
+		<td>{{member.m_name}}</td>
+	</tr>
+	<tr>
+		<td>전화</td>
+		<td>{{member.tel}}</td>
+	</tr>
+	<tr>
+		<td>이메일</td>
+		<td>{{member.email}}</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="수정" onclick="fn_mod()"/>
+			<input type="button" value="삭제" onclick="fn_del()"/>			
+		</td>
+	</tr>
+  	
+</table>
+
+</body>
+</html>

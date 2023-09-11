@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+.it_dan{
+	width: 30px;
+}
+div[name='mydiv'] {
+	height: 200px;
+	
+}
+
+
+</style>
+<script type="text/javascript">
+function myclick() {
+	
+	 var a  = document.getElementsByClassName("it_dan");
+	 var b  = document.getElementsByName("data").value
+	 var aa = a.value;
+	 var num = parseInt(a);
+	 console.log(num)
+	 
+	  for (var i = num; i <=9; i++) { 
+		  
+    }
+
+}
+</script>
+</head>
+
+<body>
+<table border="1px">
+	<tr>
+		<td>출력단수</td>
+		<td>
+			<input type="text" class="it_dan">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="출력하기">
+		</td>
+	</tr>
+		<tr>
+		<td colspan="2">
+			<div name="mydiv"> </div>
+		</td>
+	</tr>
+	
+
+
+</table>
+</body>
+</html>

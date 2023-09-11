@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+#it1,#it2,#it3{
+
+	width: 30px;
+}
+
+</style>
+<script type="text/javascript">
+function myclick() {
+	 var a  = document.getElementById('it1')
+	 var b  = document.getElementById('it2')
+	 var c  = document.getElementById('it3')
+	 
+	 var aa = a.value;
+	 var bb = b.value;
+	 
+	 var numa = parseInt(aa);
+	 var numb = parseInt(bb);
+	 var sum = numa+numb;
+	 
+	 c.value = sum;
+	 console.log(aa,bb);
+
+	
+
+}
+</script>
+</head>
+
+<body>
+<input type="text" id="it1"> 
++ 
+<input type="text" id="it2"> 
+<input type="button" value="=" onclick="myclick()"> 
+<input type="text" id="it3"> 
+</body>
+</html>
