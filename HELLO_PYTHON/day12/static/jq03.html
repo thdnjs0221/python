@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="jquery-3.7.1.min.js"></script>
 <style type="text/css">
 
 .it_dan {
@@ -15,20 +16,29 @@ div[name='mydiv'] {
 </style>
 <script type="text/javascript">
 function myclick() {
-    var aa = document.querySelector(".it_dan").value;  //클래스 값
-    var myDiv = document.querySelector("div[name='mydiv']");  // div 요소 가져오기
-    var a = parseInt(aa);
-    console.log(a);
-
-    result ="";
+	
+	var aa =  $('.it_dan').val(); 	 
+	var a = parseInt(aa)
+	
+	console.log(a);
+	
+	result ="";
     for(var i = 1; i <= 9; i++) {
         var str = a + " * " + i + " = " + (a*i);  // 구구단 계산
         result += str + "<br>";  // 결과를 누적
     }
-    
-    myDiv.innerHTML = result;  //HTML 요소의 내용을 변경
-    
+
+    $("div[name='mydiv']").html(result);
+	
 }
+
+
+$(document).ready(function(){
+	
+	$("#btn").bind("click", function() {
+		myclick();
+		});
+	});
 
 
 </script>
@@ -44,7 +54,7 @@ function myclick() {
     </tr>
     <tr>
         <td colspan="2">
-            <input type="button" value="출력하기" onclick="myclick();"> <!-- "출력하기" 버튼 클릭 시 myclick 함수 호출 -->
+            <input type="button" value="출력하기" id="btn"> <!-- "출력하기" 버튼 클릭 시 myclick 함수 호출 -->
         </td>
     </tr>
     <tr>

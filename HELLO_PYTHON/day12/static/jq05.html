@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.min.js"></script>
+<style type="text/css">
+body{
+   text-align: center;
+
+}
+#it{
+	text-align: right;
+
+}
+</style>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+	//input.value = num; // 누적된 값을 출력
+	 // $('#it').val(num);
+	    
+	let num = '';
+	$(".btn").bind("click", function() {
+
+		console.log(this.value)
+		num += this.value;
+		 $('#it').val(num); 
+		 	
+		});
+	
+	$("#btn_call").bind("click", function() {
+
+		alert(num+"\n calling...");
+		 	
+		});
+	});
+
+
+</script>
+</head>
+
+<body>
+   <table border="1px">
+      <tr>
+         <td colspan="3">
+         <input type="text" id="it"/>
+         </td>
+      </tr>
+      <tr>
+         <td>
+         <input type="button" class="btn" value="1" />
+         </td>
+         <td>
+         <input type="button" class="btn" value="2" />
+         </td>
+         <td>
+         <input type="button" class="btn" value="3" />
+         </td>
+      </tr>
+      <tr>
+         <td>
+         <input type="button" class="btn" value="4" />
+         </td>
+         <td>
+         <input type="button" class="btn" value="5" />
+         </td>
+         <td>
+         <input type="button" class="btn" value="6" />
+         </td>
+      </tr>
+      <tr>
+         <td>
+         <input type="button" class="btn" value="7" />
+         </td>
+         <td>
+         <input type="button" class="btn" value="8" />
+         </td>
+         <td>
+         <input type="button" class="btn" value="9" />
+         </td>
+      </tr>
+      <tr>
+         <td>
+         <input type="button" class="btn" value="0" />
+         </td>
+         <td colspan="2">
+         <input type="button" id="btn_call" value="CALL" />
+      </tr>
+      
+   </table>
+</body>
+</html>

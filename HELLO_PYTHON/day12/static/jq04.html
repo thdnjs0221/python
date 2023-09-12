@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="jquery-3.7.1.min.js"></script>
 <style type="text/css">
 #it_mime, #it_com, #it_result {
    width: 40px;
@@ -10,15 +11,14 @@
 </style>
 <script type="text/javascript">
    function myclick() {
-      mime = document.getElementById('it_mime').value //form태그 안에 있는건 value (textarea는 둘다)
-      comrnd = document.getElementById('it_com')
-      result = document.getElementById('it_result')
+	   
+	
+      mime =$('#it_mime').val();  //form태그 안에 있는건 value (textarea는 둘다)
+
       
       
       arr=["가위","바위","보"];
-      
-      
-      
+
       //랜덤
       rand=parseInt(Math.random()*arr.length);
       
@@ -37,14 +37,19 @@
       
       //console.log(user,com,res)
 
-       result.value = res
-       comrnd.value = com
-       
-       
-       
-   
-
+       $('#it_com').val(com);
+       $('#it_result').val(res);
+      
    }
+   
+   
+   $(document).ready(function(){
+		
+		$("#btn").bind("click", function() {
+			myclick();
+			});
+		});
+   
 </script>
 </head>
 
@@ -63,7 +68,7 @@
          <td><input type="text" id="it_result"></td>
       </tr>
       <tr>
-         <td><input type="button" value="게임하기" onclick="myclick()"></td>
+         <td><input type="button" value="게임하기" id="btn"></td>
       </tr>
 
 <!--127.0.0.1:8000/static/ex05.html  -->

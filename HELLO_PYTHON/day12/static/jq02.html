@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.min.js"></script>
+<style type="text/css">
+
+#it1,#it2,#it3{
+
+	width: 30px;
+}
+
+</style>
+<script type="text/javascript">
+function myclick() {
+	
+	a = $('#it1').val();
+	b = $('#it2').val();
+	c= $('#it3');
+	
+	 var numa = parseInt(a);
+	 var numb = parseInt(b);
+	 var sum = numa+numb;
+	 
+	 console.log(numa,numb,sum);
+	 
+	 $('#it3').val(sum);
+	
+/* 	 var a  = document.getElementById('it1')
+	 var b  = document.getElementById('it2')
+	 var c  = document.getElementById('it3')
+	 
+	 var aa = a.value;
+	 var bb = b.value;
+	 
+	 var numa = parseInt(aa);
+	 var numb = parseInt(bb);
+	 var sum = numa+numb;
+	 
+	 c.value = sum; */
+	
+}
+
+
+$(document).ready(function(){
+	
+	$("#btn").bind("click", function() {
+		myclick();
+		});
+	});
+</script>
+</head>
+
+<body>
+<input type="text" id="it1"> 
++ 
+<input type="text" id="it2"> 
+<input type="button" value="=" id="btn"> 
+<input type="text" id="it3"> 
+</body>
+</html>

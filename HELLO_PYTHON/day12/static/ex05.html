@@ -5,66 +5,80 @@
 <title>Insert title here</title>
 <style type="text/css">
 body{
-	text-align: center;
+   text-align: center;
 
 }
+#it{
+	text-align: right;
 
+}
 </style>
 <script type="text/javascript">
-	function myclick() {
 
-	}
+let num = ''; // 누적된 값을 저장하는 변수
+
+function myclick(value) {
+    num += value; // 입력된 값을 누적
+    var input = document.getElementById('it');
+    
+    input.value = num; // 누적된 값을 출력
+}
+
+function call() {
+   alert(num+" calling...");
+}
+
 </script>
 </head>
 
 <body>
-	<table border="1px">
-		<tr>
-			<td colspan="3">
-			<input type="text" id="it"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<input type="button" class="btn" value="1"/>
-			</td>
-			<td>
-			<input type="button" class="btn" value="2"/>
-			</td>
-			<td>
-			<input type="button" class="btn" value="3"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<input type="button" class="btn" value="4"/>
-			</td>
-			<td>
-			<input type="button" class="btn" value="5"/>
-			</td>
-			<td>
-			<input type="button" class="btn" value="6"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<input type="button" class="btn" value="7"/>
-			</td>
-			<td>
-			<input type="button" class="btn" value="8"/>
-			</td>
-			<td>
-			<input type="button" class="btn" value="9"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<input type="button" class="btn" value="0"/>
-			</td>
-			<td colspan="2">
-			<input type="button" id="btn_call" value="CALL"/>
-		</tr>
-		
-	</table>
+   <table border="1px">
+      <tr>
+         <td colspan="3">
+         <input type="text" id="it"/>
+         </td>
+      </tr>
+      <tr>
+         <td>
+         <input type="button" class="btn" value="1" onclick="myclick(1)"/>
+         </td>
+         <td>
+         <input type="button" class="btn" value="2" onclick="myclick(2)"/>
+         </td>
+         <td>
+         <input type="button" class="btn" value="3" onclick="myclick(3)"/>
+         </td>
+      </tr>
+      <tr>
+         <td>
+         <input type="button" class="btn" value="4" onclick="myclick(4)"/>
+         </td>
+         <td>
+         <input type="button" class="btn" value="5" onclick="myclick(5)"/>
+         </td>
+         <td>
+         <input type="button" class="btn" value="6" onclick="myclick(6)"/>
+         </td>
+      </tr>
+      <tr>
+         <td>
+         <input type="button" class="btn" value="7" onclick="myclick(7)"/>
+         </td>
+         <td>
+         <input type="button" class="btn" value="8" onclick="myclick(8)"/>
+         </td>
+         <td>
+         <input type="button" class="btn" value="9" onclick="myclick(9)"/>
+         </td>
+      </tr>
+      <tr>
+         <td>
+         <input type="button" class="btn" value="0" onclick="myclick(0)"/>
+         </td>
+         <td colspan="2">
+         <input type="button" id="btn_call" value="CALL" onclick="call()"/>
+      </tr>
+      
+   </table>
 </body>
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.min.js"></script>
+<style type="text/css">
+#it_first,it_last{
+	width: 40px;
+	
+}
+#my_div{
+	height: 200px;
+}
+</style>
+<script type="text/javascript">
+
+function getStar(cnt) {
+	ret=""
+	for (i=0; i<cnt; i++){
+		ret+="*"
+	}
+	ret+="<br/>"
+	return ret;
+	
+}
+
+function myclick() {
+	 
+firstNum = $('#it_first').val();
+lastNum = $('#it_last').val();
+myDiv = $('#my_div');
+
+first = parseInt(firstNum);
+last = parseInt(lastNum);
+str="";
+
+for(var i=first; i<=last; i++){
+	str+=getStar(i);
+}
+
+console.log(first,last)
+
+$('#my_div').html(str);
+
+
+}
+
+
+$(document).ready(function(){
+	
+	$("#btn").bind("click", function() {
+		myclick();
+		});
+	});
+
+</script>
+</head>
+<body>
+   <table border="1px">
+      <tr>
+         <td>시작별수 </td>
+         <td>
+          	<input type="text" id="it_first"/> 
+		 </td>
+      </tr>
+      <tr>
+         <td>끝별수 </td>
+         <td>
+          	<input type="text" id="it_last"/> 
+		 </td>
+      </tr>
+       <tr>
+         <td colspan="2">
+         	<input type="button" value="별그리기" id="btn"/>
+    
+		 </td>
+      </tr> 
+             <tr>
+         <td colspan="2">
+         	<div id=my_div ></div>
+    
+		 </td>
+      </tr>    
+      
+   </table>
+</body>
+</html>
