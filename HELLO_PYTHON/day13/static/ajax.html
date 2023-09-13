@@ -6,22 +6,24 @@
 <script src="jquery-3.7.1.min.js"></script>
 <script>
 function myclick() {
-	
-/* 	document.getElementById('mydiv').innerHTML="good evening"; */
-	$('#mydiv').html("good evening");
-}
-$(document).ready(function(){
-	
-	$("#btn").bind("click", function() {
-		myclick();
-		});
+	var params = {
+		'e_id' : '짬뽕',
+	};
+
+	$.ajax({
+		url: "../myajax",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+		   console.log(resp);
+		}
 	});
+};
 </script>
-
 </head>
-
-<body >
-<div id="mydiv">Good Morning</div>
-<input type="button" value="CLICK" id="btn">
+<body>
+<input type="button" value="CLICK" onclick="myclick()">
 </body>
 </html>

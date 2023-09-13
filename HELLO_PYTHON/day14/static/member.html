@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+function fn_list() {
+	var params = {
+		'm_id' : '짬뽕'
+	};
+	$.ajax({
+		url: "../mem_select",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+		   console.log(resp);
+		   var list  = resp.list
+		   var html ="";
+		   for(var i=0; i<list.length; i++){
+			   var e =list[i]
+			   html+=`
+				<tr>
+					<td><a href="javascript:fn_one('${e.m_id}')">${e.m_id}</a></td>
+					<td>${e.m_name}</td>
+					<td>${e.tel}</td>
+					<td>${e.email}</td>
+				</tr>			   
+			   `;
+		   }
+		   $('#my_tbody').html(html);
+		}
+	});
+};
+
+function fn_one(m_id){
+	var params = {
+			'm_id' : m_id
+		};
+
+	$.ajax({
+		url: "../mem_select_one",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+		   console.log(resp);
+		   var mem= resp.emp
+		    $('#m_id').val(mem.m_id); 
+		    $('#m_name').val(mem.m_name); 
+		    $('#tel').val(mem.tel); 
+		    $('#email').val(mem.email); 
+		}
+	});
+}
+
+function fn_add(){
+	var params = {
+			'm_id' : $('#m_id').val(),
+			'm_name' : $('#m_name').val(),
+			'tel' : $('#tel').val(),
+			'email' : $('#email').val()
+		};
+
+	$.ajax({
+		url: "../mem_insert",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var cnt =resp.cnt;
+		  	if(cnt ==1){
+		  		alert("정상적으로 추가되었습니다")
+		  		fn_list();
+		  		$("#m_id").val("");
+		  		$("#m_name").val("");
+		  		$("#tel").val("");
+		  		$("#email").val("");
+		  	}else{
+		  		alert("추가도중 문제가 생겼습니다")
+		  	}
+		    
+		}
+	});
+}
+
+
+</script>
+</head>
+<body>
+	<input type="button" value="CLICK" onclick="fn_list()">
+	<table border="1">
+		<thead>
+			<tr>
+				<td>아이디</td>
+				<td>이름</td>
+				<td>전화번호</td>
+				<td>이메일</td>
+			</tr>
+		</thead>
+		<tbody id="my_tbody">
+			<tr>
+				<td colspan="4">데이터가 없습니다</td>
+			</tr>
+		</tbody>
+	</table>
+	<table border="1">
+		<tr>
+			<td>사번</td>
+			<td><input type="text" id="m_id" /></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" id="m_name" /></td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td><input type="text" id="tel" /></td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td><input type="text" id="email" /></td>
+		</tr>
+		<tr>
+			<td colspan="3">
+			<input type="button" value="추가" onclick="fn_add()" /> 
+			<input type="button" value="수정" onclick="fn_mod()" /> 
+			<input type="button" value="삭제" onclick="fn_del()" />
+			</td>
+		</tr>
+
+
+	</table>
+
+</body>
+</html>
