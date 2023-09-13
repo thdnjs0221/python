@@ -45,7 +45,19 @@ def mem_select_one(e:Mem):
 @app.post("/mem_insert")
 def mem_insert(e:Mem):
     me=DaoMem()
-    cnt=me.insert(e.m_id, e.m_name, e.tel, e.email)
+    cnt=me.insert(e.m_id,e.m_name, e.tel, e.email)
+    return {"cnt": cnt}
+
+@app.post("/mem_update")
+def mem_update(e:Mem):
+    me=DaoMem()
+    cnt=me.update(e.m_id,e.m_name, e.tel, e.email)
+    return {"cnt": cnt}
+
+@app.post("/mem_delete")
+def mem_delete(e:Mem):
+    me=DaoMem()
+    cnt=me.delete(e.m_id)
     return {"cnt": cnt}
 
 

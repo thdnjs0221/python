@@ -88,6 +88,72 @@ function fn_add(){
 	});
 }
 
+function fn_mod(){
+	var params = {
+			'm_id' : $('#m_id').val(),
+			'm_name' : $('#m_name').val(),
+			'tel' : $('#tel').val(),
+			'email' : $('#email').val()
+		};
+
+	$.ajax({
+		url: "../mem_update",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var cnt =resp.cnt;
+		  	if(cnt ==1){
+		  		alert("정상적으로 수정되었습니다")
+		  		fn_list();
+		  		$("#m_id").val("");
+		  		$("#m_name").val("");
+		  		$("#tel").val("");
+		  		$("#email").val("");
+		  	}else{
+		  		alert("추가도중 문제가 생겼습니다")
+		  	}
+		    
+		}
+	});
+}
+
+function fn_del(){
+	var params = {
+			'm_id' : $('#m_id').val(),
+			'm_name' : $('#m_name').val(),
+			'tel' : $('#tel').val(),
+			'email' : $('#email').val()
+		};
+
+	$.ajax({
+		url: "../mem_delete",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var cnt =resp.cnt;
+		  	if(cnt ==1){
+		  		alert("정상적으로 삭제되었습니다")
+		  		fn_list();
+		  		$("#m_id").val("");
+		  		$("#m_name").val("");
+		  		$("#tel").val("");
+		  		$("#email").val("");
+		  	}else{
+		  		alert("추가도중 문제가 생겼습니다")
+		  	}
+		    
+		}
+	});
+}
+
+$(document).ready(function(){
+		fn_list();
+	});
+
 
 </script>
 </head>
